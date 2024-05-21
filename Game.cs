@@ -1,6 +1,4 @@
-﻿
-
-using Avalonia.Input;
+﻿using Avalonia.Input;
 using Digger.Architecture;
 
 namespace Digger;
@@ -43,6 +41,6 @@ S TTST  TG
 
 	public static void CreateMap()
 	{
-		Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrain);
+		Map = CreatureMapCreator.CreateMap(mapWithPlayerTerrainSackGold);
 	}
 }
