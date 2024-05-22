@@ -10,7 +10,7 @@ namespace Digger
     {
         public CreatureCommand Act(int x, int y)
         {
-            return new CreatureCommand();
+            return y + 1 < Game.MapHeight && Game.Map[x,y+1] is null ? new CreatureCommand() { DeltaY = 1 } : new CreatureCommand();
         }
 
         public bool DeadInConflict(ICreature conflictedObject)
