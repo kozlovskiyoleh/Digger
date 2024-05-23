@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Digger.Architecture;
@@ -10,7 +11,18 @@ namespace Digger
     {
         public CreatureCommand Act(int x, int y)
         {
-            return y + 1 < Game.MapHeight && Game.Map[x,y+1] is null ? new CreatureCommand() { DeltaY = 1 } : new CreatureCommand();
+            if(y+1<Game.MapHeight)
+            {
+                if (Game.Map[x,y+1] is null)
+                {
+                    return new CreatureCommand() { DeltaY = 1 };
+                }
+                if (Game.Map[x,y+1] is Player)
+                {
+                    Game.IsOver = true;
+                }
+            }
+            return new CreatureCommand();
         }
 
         public bool DeadInConflict(ICreature conflictedObject)

@@ -27,6 +27,10 @@ namespace Digger
 
         public bool DeadInConflict(ICreature conflictedObject)
         {
+            if(conflictedObject is Sack)
+            {
+                return true;
+            }
             return false;
         }
 
