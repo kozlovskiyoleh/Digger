@@ -17,10 +17,7 @@ namespace Digger
                 {
                     return new CreatureCommand() { DeltaY = 1 };
                 }
-                if (Game.Map[x,y+1] is Player)
-                {
-                    Game.IsOver = true;
-                }
+
             }
             return new CreatureCommand();
         }
