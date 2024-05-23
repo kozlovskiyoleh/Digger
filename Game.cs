@@ -5,7 +5,14 @@ namespace Digger;
 
 public static class Game
 {
-	private const string mapWithPlayerTerrain = @"
+
+	private const string mapError = @"
+ S
+ P
+  
+  ";
+
+    private const string mapWithPlayerTerrain = @"
 TTT T
 TTP T
 T T T

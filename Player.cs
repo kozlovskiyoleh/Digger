@@ -10,10 +10,6 @@ namespace Digger
     {
         public CreatureCommand Act(int x, int y)
         {
-            if (y - 1 >= 0 && Game.Map[x, y - 1] is Sack)
-            {
-                Game.Map[x, y] = null;
-            }
             switch (Game.KeyPressed)
             {
                 case Key.Up:
@@ -31,7 +27,7 @@ namespace Digger
 
         public bool DeadInConflict(ICreature conflictedObject)
         {
-            return conflictedObject is Sack;
+            return false;
         }
 
         public int GetDrawingPriority()
