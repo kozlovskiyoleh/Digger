@@ -13,22 +13,18 @@ namespace Digger
 
         public CreatureCommand Act(int x, int y)
         {
-            if(y + 1 < Game.MapHeight)
+            if (y + 1 < Game.MapHeight)
             {
-                if (Game.Map[x, y + 1] is null)
+                if (Game.Map[x, y + 1] is null || (Game.Map[x,y + 1] is Player && quantityCellsSacksFallingDown > 1))
                 {
                     quantityCellsSacksFallingDown++;
                     return new CreatureCommand() { DeltaY = 1 };
                 }
-
-                if (Game.Map[x, y + 1] is Player && quantityCellsSacksFallingDown>0)
-                {
-                    Game.Map[x, y + 1] = null;
-                    Game.IsOver = true;
-                }
             }
+            
             if (quantityCellsSacksFallingDown > 1)
             {
+                quantityCellsSacksFallingDown = 0;
                 return new CreatureCommand() { TransformTo = new Gold() };
             }
             quantityCellsSacksFallingDown = 0;
